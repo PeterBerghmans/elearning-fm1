@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module – Van onderzoeksvraag tot Feedbackmoment 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=20261112h">
+</head>
+<body>
+<header class="kop">
+  <a href="index.html" title="Terug naar het stappenplan"><span class="modnr" id="modnr">M</span></a>
+  <span class="modtitel" id="modtitel">Laden…</span>
+  <nav aria-label="Snelkoppelingen">
+    <a href="index.html">Stappenplan</a>
+    <button id="naarBegin">Ga naar het begin</button>
+    <button id="naarOefening">Ga naar de oefeningen</button>
+    <button id="mijnWerk" title="Download alles wat je in de modules invulde, geordend per deel van het document">Mijn werk</button>
+    <a href="syllabus.html" target="_blank" rel="noopener">Download syllabus</a>
+  </nav>
+</header>
+
+<div class="fasebalk" role="group" aria-label="Inlevermoment">
+  <label>Ik werk aan
+    <select id="faseKeuze"></select>
+  </label>
+  <span class="fasewanneer" id="faseWanneer"></span>
+  <label class="schakel"><input type="checkbox" id="enkelNu"> Enkel wat nu nodig is</label>
+</div>
+
+<main class="speler">
+  <aside class="rail" aria-label="Bouwstenen van jullie document">
+    <h2>Jullie document voor 22/11</h2>
+    <div class="blad" id="blad"></div>
+    <p class="bijschrift">Gemarkeerd: het deel waaraan deze module bouwt.</p>
+    <ol class="stappen" id="stappenlijst"></ol>
+  </aside>
+
+  <section class="podium">
+    <article class="scherm" id="scherm" aria-live="polite">
+      <ol class="overzicht" id="overzicht" aria-label="Deelstappen van deze module" hidden></ol>
+      <p class="sectie"><span id="sectie"></span> <span class="fase-badge" id="faseBadge"></span></p>
+      <h1 id="titel"></h1>
+      <div class="visual" id="visual"></div>
+      <div class="bronnen" id="bronnen"></div>
+    </article>
+
+    <div class="bediening" role="group" aria-label="Bediening">
+      <button id="vorige" aria-label="Vorig scherm">◀</button>
+      <button id="speel" class="speel">▶ Start</button>
+      <button id="volgende" aria-label="Volgend scherm">▶▶</button>
+      <div class="voortgang" id="voortgang" title="Voortgang van dit scherm"><div class="balk" id="balk"></div></div>
+      <span class="teller" id="teller">0 / 0</span>
+      <label class="snelheid">Snelheid
+        <select id="snelheid">
+          <option value="0.75">0,75×</option><option value="1" selected>1×</option>
+          <option value="1.25">1,25×</option><option value="1.5">1,5×</option>
+          <option value="1.75">1,75×</option><option value="2">2×</option>
+        </select>
+      </label>
+    </div>
+
+    <details class="transcript" id="transcript" open>
+      <summary>Tekst bij dit scherm <span class="audiostatus" id="audiostatus" hidden></span></summary>
+      <p id="spreektekst"></p>
+    </details>
+
+    <section class="bronpaneel" id="bronpaneel" hidden aria-label="Bron">
+      <div class="bronkop"><b id="bronnaam"></b>
+        <a id="bronextern" target="_blank" rel="noopener">Open in nieuw tabblad</a>
+        <button id="bronsluit" aria-label="Bron sluiten">Sluiten</button></div>
+      <div id="bronhouder"></div>
+    </section>
+
+  </section>
+</main>
+
+<script src="assets/cursus.js?v=20261112h"></script>
+<script src="content/fasen.js?v=20261112h"></script>
+<script src="assets/player.js?v=20261112h"></script>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

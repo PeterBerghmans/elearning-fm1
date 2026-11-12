@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Van onderzoeksvraag tot Feedbackmoment 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=20261112h">
+</head>
+<body>
+<main class="start">
+  <section class="held">
+    <div>
+      <h1>Van onderzoeksvraag tot Feedbackmoment&nbsp;1</h1>
+      <p class="lead">Tien korte modules leiden jullie groep door de stappen uit de lessen. Elke module eindigt met een opdracht die één deel van jullie document oplevert. Na de laatste module ligt het document klaar om in te dienen.</p>
+      <span class="deadline" id="deadline"></span>
+      <div class="startfase">
+        <label>Ik werk aan <select id="faseKeuze"></select></label>
+        <label><input type="checkbox" id="enkelNu"> Enkel wat nu nodig is</label>
+      </div>
+      <p class="bijschrift" id="faseUitleg" style="font-size:.88rem;color:var(--leisteen);margin-top:.5rem"></p>
+    </div>
+    <div>
+      <div class="blad" id="blad" aria-label="Bouwstenen van het document"></div>
+      <p class="bijschrift" style="font-size:.85rem;color:var(--leisteen)">Een vinkje verschijnt zodra alle modules voor dat deel doorlopen zijn.</p>
+    </div>
+  </section>
+
+  <h2>Het stappenplan</h2>
+  <ol class="route" id="route"></ol>
+
+  <h2>Verdieping</h2>
+  <ol class="route" id="verdieping"></ol>
+
+  <p style="margin-top:2rem"><a href="syllabus.html" target="_blank" rel="noopener">Download de volledige syllabus (pdf)</a></p>
+</main>
+<script src="assets/cursus.js?v=20261112h"></script>
+<script src="content/fasen.js?v=20261112h"></script>
+<script>
+  window.addEventListener("error", () => {
+    const d = document.getElementById("deadline");
+    if (d && !d.textContent) d.textContent = "De pagina laadde niet volledig. Herlaad de pagina (Cmd+Shift+R of Ctrl+F5).";
+  });
+</script>
+<script>
+  const fu = (m) => { const u = Math.floor(m / 60), r = m % 60; return u ? u + "u" + String(r).padStart(2, "0") : r + " min"; };
+  function tekenStart() {
+    const fase = Fase.info();
+    document.getElementById("deadline").textContent = "Indienen " + fase.naam.toLowerCase() + ": " + fase.wanneer;
+    document.getElementById("faseUitleg").textContent = fase.id === "fm1"
+      ? "Elke module toont wat je nu nodig hebt, wat je zeker moet kennen en wat voor later is. Met \"Enkel wat nu nodig is\" slaat de speler de schermen voor later over."
+      : "Feedbackmoment 1 ligt achter je. Wat je toen maakte, staat als basis in Mijn werk; de modules tonen nu wat erbij komt.";
+    tekenRoute();
+  }
+  const sel = document.getElementById("faseKeuze");
+  sel.replaceChildren(...CURSUS.fasen.map((f) => new Option(f.naam + (f.id === Fase.automatisch() ? " (nu volgens de datum)" : ""), f.id)));
+  sel.value = Fase.huidig();
+  sel.onchange = () => { Fase.kies(sel.value); tekenStart(); };
+  const en = document.getElementById("enkelNu");
+  en.checked = !!Opslag.lees("enkelNu", false);
+  en.onchange = () => { Opslag.schrijf("enkelNu", en.checked); tekenRoute(); };
+  document.getElementById("blad").innerHTML = CURSUS.bouwstenen.map(b => {
+    const klaar = CURSUS.modules.filter(m => m.bouwt.includes(b.id)).every(m => Opslag.klaar(m.id));
+    return `<div class="regel ${klaar ? "klaar" : ""}"><b>${b.id}</b><span>${b.tekst}</span></div>`;
+  }).join("");
+  function nodigLabel(m) {
+    if (m.voltooid || !m.klaar || Fase.huidig() !== "fm1") return "";
+    const f = (window.FASEN[m.id] || {}).slides || {};
+    const tel = (e) => Object.values(f).filter((x) => x.fase === e).length;
+    const later = tel("maart") + tel("mei"), kennen = tel("kennen");
+    const extra = [kennen ? kennen + " schermen zeker kennen" : "", later ? later + " schermen voor later" : ""].filter(Boolean).join(" · ");
+    if (!tel("nu")) return '<span class="nodig niet">Niet nodig voor het document' + (extra ? " · " + extra : "") + '</span>';
+    return '<span class="nodig">Nu nodig: ±' + fu(m.nunodig) + (m.nunodig < m.totaal ? " (van " + fu(m.totaal) + ")" : "") + (extra ? " · " + extra : "") + '</span>';
+  }
+  function tekenRoute() {
+  document.getElementById("route").innerHTML = CURSUS.modules.map(m => `
+    <li class="${m.voltooid ? "voltooid" : (m.klaar ? "" : "nietklaar")}"><a href="module.html?m=${m.id}">
+      <span class="nr">${m.nr}</span>
+      <span class="wat">${nodigLabel(m)}<b>${m.titel}${m.voltooid ? '<span class="label-voltooid">reeds voltooid</span>' : ""}</b><span>${m.stap} · bouwt aan ${m.bouwt.join(", ")}${m.klaar ? "" : " · binnenkort beschikbaar"}</span></span>
+      <span class="min">${m.min} min e-learning<br>±${Math.floor(m.totaal/60) ? Math.floor(m.totaal/60) + "u" : ""}${String(m.totaal%60).padStart(Math.floor(m.totaal/60) ? 2 : 1,"0")}${Math.floor(m.totaal/60) ? "" : " min"} met opdracht${!m.voltooid && Opslag.lees("klaar." + m.id, false) ? "<br>✓ doorlopen" : ""}</span>
+    </a></li>`).join("");
+  }
+  document.getElementById("verdieping").innerHTML = CURSUS.verdieping.map(v => `
+    <li class="verdieping nietklaar"><a href="module.html?m=${v.id}"><span class="nr">${v.nr}</span>
+      <span class="wat"><b>${v.titel}</b><span>optioneel · binnenkort beschikbaar</span></span><span class="min"></span></a></li>`).join("");
+  tekenStart();
+</script>
+</body>
+</html>
