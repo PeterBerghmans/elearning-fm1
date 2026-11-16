@@ -2,7 +2,7 @@
 
 E-learning bij het vak *Inleiding tot economische onderzoeksmethoden* (UAntwerpen), voor één begeleidingsgroep.
 
-In deze versie staan **module 0 en module 1** open. De andere modules zijn zichtbaar in het stappenplan, maar nog niet beschikbaar.
+Alle modules (M0 tot M9) staan open. Vanaf module 2 vertrekt de e-learning van de onderzoeksvraag die jullie groep na module 1 koos.
 
 ## Gebruiken
 

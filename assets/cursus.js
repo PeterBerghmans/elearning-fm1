@@ -1,6 +1,6 @@
 // Gedeelde cursusgegevens: route, bouwstenen van het eindproduct, bronnen.
 window.CURSUS = {
-  versie: "20261112h", // verhoog bij elke wijziging, zodat browsers de nieuwe bestanden laden
+  versie: "20261117b", // verhoog bij elke wijziging, zodat browsers de nieuwe bestanden laden
   titel: "Van onderzoeksvraag tot Feedbackmoment 1",
   deadline: "zondag 22 november, 23u59", // verouderd: gebruik data.fm1
   // Inlevermomenten: de enige plek met concrete data (regel G5). "tot" = laatste dag van die fase.
@@ -24,6 +24,10 @@ window.CURSUS = {
     { id: "v0",
       tekst: "In welke mate beïnvloedt een gebrek aan digitale vaardigheden de instroom ten opzichte van het behoud van werk bij laaggeschoolden in Vlaanderen in de periode 2019-2024?",
       type: "verklarend",
+      toelichting: "" },
+    { id: "v1",
+      tekst: "Wegen digitale vaardigheden sinds de coronacrisis zwaarder door wanneer Vlaamse werkgevers laaggeschoolde jongeren aanwerven in vergelijking met de periode daarvoor?",
+      type: "verklarend of beschrijvend (keuze in module 6)",
       toelichting: "" }
   ],
   fasen: [
@@ -42,14 +46,14 @@ window.CURSUS = {
   modules: [
     { id: "m0", nr: "M0", titel: "Start: wat lever je in en hoe loopt de route?", min: 8, totaal: 40, nunodig: 0,  stap: "Vertrekpunt", bouwt: ["E"], klaar: true, voltooid: true },
     { id: "m1", nr: "M1", titel: "De onderzoeksvraag kritisch doorlichten", min: 45, totaal: 105, nunodig: 105, stap: "Stap 1", bouwt: ["A"], klaar: true, vraag: "v0" },
-    { id: "m2", nr: "M2", titel: "Verankering in een klassiek economisch model", min: 30, totaal: 85, nunodig: 85, stap: "Stap 2", bouwt: ["B"], klaar: false, vraag: "v0" },
-    { id: "m3", nr: "M3", titel: "Zoekstrategie: vakjargon, JEL-codes en zoekplekken", min: 30, totaal: 120, nunodig: 90, stap: "Stap 3", bouwt: ["D"], klaar: false, vraag: "v0" },
-    { id: "m4", nr: "M4", titel: "Bronnen selecteren en beoordelen", min: 30, totaal: 160, nunodig: 75, stap: "Stap 3", bouwt: ["D"], klaar: false, vraag: "v0" },
-    { id: "m5", nr: "M5", titel: "Correct refereren: het bronnenoverzicht", min: 35, totaal: 110, nunodig: 75, stap: "Stap 3", bouwt: ["D"], klaar: false, vraag: "v0" },
-    { id: "m6", nr: "M6", titel: "Causaliteit kritisch lezen", min: 25, totaal: 60, nunodig: 0, stap: "Stap 4", bouwt: ["B"], klaar: false, vraag: "v0" },
-    { id: "m7", nr: "M7", titel: "Het bouwplan: deelvragen, structuur en titel", min: 35, totaal: 135, nunodig: 115, stap: "Stap 5", bouwt: ["V","A","B"], klaar: false, vraag: "v0" },
-    { id: "m8", nr: "M8", titel: "De aanzet tot inleiding, in academisch Nederlands", min: 35, totaal: 115, nunodig: 75, stap: "Stap 5", bouwt: ["C"], klaar: false, vraag: "v0" },
-    { id: "m9", nr: "M9", titel: "Planning, taakverdeling en eindcontrole", min: 35, totaal: 120, nunodig: 120, stap: "Stap 6", bouwt: ["E"], klaar: false, vraag: "v0" }
+    { id: "m2", nr: "M2", titel: "Een economisch model voor de afweging van de werkgever", min: 58, totaal: 95, nunodig: 80, stap: "Stap 2", bouwt: ["B"], klaar: true, vraag: "v1" },
+    { id: "m3", nr: "M3", titel: "Zoekstrategie: studies vinden die meten wat jullie vraag vraagt", min: 40, totaal: 100, nunodig: 80, stap: "Stap 3", bouwt: ["D", "A"], klaar: true, vraag: "v1" },
+    { id: "m4", nr: "M4", titel: "Bronnen beoordelen: meet deze studie wat jullie vraag vraagt?", min: 30, totaal: 90, nunodig: 77, stap: "Stap 3", bouwt: ["D"], klaar: true, vraag: "v1" },
+    { id: "m5", nr: "M5", titel: "Correct refereren: rapporten, data en het bronnenoverzicht", min: 40, totaal: 85, nunodig: 56, stap: "Stap 3", bouwt: ["D"], klaar: true, vraag: "v1" },
+    { id: "m6", nr: "M6", titel: "\"Sinds de coronacrisis\": tijdsgrens of oorzaak?", min: 50, totaal: 100, nunodig: 48, stap: "Stap 4", bouwt: ["A"], klaar: true, vraag: "v1" },
+    { id: "m7", nr: "M7", titel: "Het bouwplan: versie 2, deelvragen, structuur, titel en voorblad", min: 65, totaal: 105, nunodig: 85, stap: "Stap 5", bouwt: ["V", "A", "B"], klaar: true, vraag: "v1" },
+    { id: "m8", nr: "M8", titel: "De aanzet tot inleiding", min: 60, totaal: 85, nunodig: 75, stap: "Stap 5", bouwt: ["C"], klaar: true, vraag: "v1" },
+    { id: "m9", nr: "M9", titel: "Planning, taakverdeling, eindcontrole en feedbackgesprek", min: 39, totaal: 100, nunodig: 85, stap: "Stap 6", bouwt: ["E"], klaar: true, vraag: "v1" }
   ],
   verdieping: [
     { id: "v1", nr: "V1", titel: "Difference-in-differences stap voor stap" },

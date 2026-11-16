@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Syllabus – Van onderzoeksvraag tot Feedbackmoment 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=20261117b">
+</head>
+<body>
+<div class="geen-print" style="max-width:780px;margin:1rem auto;display:flex;gap:.6rem">
+  <button class="knop" onclick="window.print()">Opslaan als pdf</button>
+  <a class="knop licht" href="index.html" style="text-decoration:none">Terug naar het stappenplan</a>
+</div>
+<main class="syllabus" id="syllabus"><p>Laden…</p></main>
+<script src="assets/cursus.js?v=20261117b"></script>
+<script>
+  // Laadt alle beschikbare modules na elkaar en zet hun theorie, schermen en opdracht onder elkaar.
+  const beschikbaar = CURSUS.modules.filter(m => m.klaar);
+  let geladen = 0;
+  beschikbaar.forEach(m => {
+    const s = document.createElement("script");
+    s.src = "content/" + m.id + ".js?v=" + (CURSUS.versie || "");
+    s.onload = s.onerror = () => { if (++geladen === beschikbaar.length) bouw(); };
+    document.head.appendChild(s);
+  });
+  if (!beschikbaar.length) bouw();
+  function bronLabel(b) { return b.label; }
+  function bouw() {
+    let html = `<h1>${CURSUS.titel}</h1><p>Syllabus bij de e-learning. Bevat de volledige theorie, de schermen en de opdrachten van elke module, met verwijzingen naar de lesslides.</p>`;
+    beschikbaar.forEach(meta => {
+      const m = MODULES[meta.id]; if (!m) return;
+      html += `<h2>${m.nummer}. ${m.titel}</h2><p><b>Leerdoel:</b> ${m.leerdoel}</p>`;
+      if (m.syllabus) html += m.syllabus;
+      html += `<h3>Schermen</h3>`;
+      m.slides.forEach(sl => {
+        const bronnen = (sl.bronnen || []).map(bronLabel).join("; ");
+        html += `<div class="scherm" style="min-height:0;margin:1rem 0;padding:1.2rem"><p class="sectie">${sl.sectie}</p><h4 style="font-size:1.2rem;margin:.2rem 0 .8rem">${sl.titel}</h4><div class="visual">${sl.visual || ""}</div>${bronnen ? `<p class="bronverwijzing">Raadpleeg: ${bronnen}</p>` : ""}</div>`;
+      });
+      const o = m.opdracht;
+      if (o) {
+        html += `<h3>Opdracht: ${o.titel}</h3><p><b>Product:</b> ${o.product}</p><ol>${o.stappen.map(x => `<li>${x}</li>`).join("")}</ol>`;
+        if (o.checklist && o.checklist.length) html += `<div class="checklist">${o.checklist.map(c => `<div class="item">${c}</div>`).join("")}</div>`;
+        if (o.rubric && o.rubric.length) html += `<table class="tabel"><tr><th>Criterium</th><th>Onvoldoende</th><th>Voldoende</th><th>Sterk</th></tr>${o.rubric.map(r => `<tr><td><b>${r.criterium}</b></td><td>${r.onvoldoende}</td><td>${r.voldoende}</td><td>${r.sterk}</td></tr>`).join("")}</table>`;
+      }
+    });
+    document.getElementById("syllabus").innerHTML = metData(html);
+  }
+</script>
+</body>
+</html>
