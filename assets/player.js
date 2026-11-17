@@ -94,7 +94,7 @@
     $("blad").innerHTML = CURSUS.bouwstenen.map((b) => {
       const klaar = CURSUS.modules.filter((m) => m.bouwt.includes(b.id)).every((m) => Opslag.klaar(m.id));
       const cls = meta.bouwt.includes(b.id) ? "hier" : (klaar ? "klaar" : "");
-      return `<div class="regel ${cls}"><b>${b.id}</b><span>${b.tekst}</span></div>`;
+      return `<div class="regel ${cls}"><span>${b.tekst}</span></div>`;
     }).join("");
     $("stappenlijst").innerHTML = CURSUS.modules.map((m) =>
       `<li><a href="${m.klaar ? "module.html?m=" + m.id : "#"}" class="${m.id === modId ? "actief" : ""}" ${m.klaar ? "" : 'aria-disabled="true"'}>${m.nr} ${m.titel}${m.voltooid ? " ✓" : ""}</a></li>`).join("");
@@ -313,7 +313,7 @@
     const F = window.FASEN[modId] || {};
     const fStap = (k) => (F.stappen && F.stappen[k]) || "nu";
     const fVeld = (id) => (F.werkvelden && F.werkvelden[id]) || "nu";
-    const velden = (o.werkvelden || []).filter((v) => !(Opslag.lees("enkelNu", false) && Fase.label(fVeld(v.id)).later)).map((v) => { const lab = Fase.label(fVeld(v.id)); return `<div class="werkveld ${lab.later ? "later" : ""}"><label for="wv-${v.id}"><span class="bs">${v.bouwsteen}</span>${v.label} <span class="fase-badge ${lab.cls}">${lab.tekst}</span></label>
+    const velden = (o.werkvelden || []).filter((v) => !(Opslag.lees("enkelNu", false) && Fase.label(fVeld(v.id)).later)).map((v) => { const lab = Fase.label(fVeld(v.id)); return `<div class="werkveld ${lab.later ? "later" : ""}"><label for="wv-${v.id}"><span class="bs">${(CURSUS.bouwstenen.find((b) => b.id === v.bouwsteen) || { tekst: "Werkbestand" }).tekst}</span>${v.label} <span class="fase-badge ${lab.cls}">${lab.tekst}</span></label>
       <textarea id="wv-${v.id}" data-id="${v.id}" data-bs="${v.bouwsteen}" data-fase="${fVeld(v.id)}" data-label="${esc(v.label)}" placeholder="${esc(v.placeholder || "")}">${esc(Werk.tekst(modId + ".wv." + v.id))}</textarea>
       <small>Wordt automatisch bewaard in Mijn werk.</small></div>`; }).join("");
     const stappen = (o.stappen || []).map((x, k) => ({ x, k, lab: Fase.label(fStap(String(k))) }));

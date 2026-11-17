@@ -1,6 +1,6 @@
 // Gedeelde cursusgegevens: route, bouwstenen van het eindproduct, bronnen.
 window.CURSUS = {
-  versie: "20261117b", // verhoog bij elke wijziging, zodat browsers de nieuwe bestanden laden
+  versie: "20261117c", // verhoog bij elke wijziging, zodat browsers de nieuwe bestanden laden
   titel: "Van onderzoeksvraag tot Feedbackmoment 1",
   deadline: "zondag 22 november, 23u59", // verouderd: gebruik data.fm1
   // Inlevermomenten: de enige plek met concrete data (regel G5). "tot" = laatste dag van die fase.
@@ -36,11 +36,11 @@ window.CURSUS = {
     { id: "mei",   naam: "Finale paper en verdediging", wanneer: "mei",                       tot: "2027-05-31" }
   ],
   bouwstenen: [
-    { id: "V", tekst: "Voorblad en titel" },
+    { id: "V", tekst: "Voorblad" },
     { id: "A", tekst: "Onderzoeksvraag en afbakening" },
-    { id: "B", tekst: "Genummerde structuur vanuit een economisch model" },
+    { id: "B", tekst: "Structuur" },
     { id: "C", tekst: "Aanzet tot inleiding" },
-    { id: "D", tekst: "Bronnenoverzicht [G] en [T]" },
+    { id: "D", tekst: "Bronnenoverzicht" },
     { id: "E", tekst: "Planning en taakverdeling" }
   ],
   modules: [
@@ -122,7 +122,7 @@ window.Werk = {
     const w = this.alles(); const ids = Object.keys(w);
     if (!ids.length) return false;
     const regels = ["Mijn werk – bouwstenen voor GroepX_Feedbackmoment1.docx", "Gedownload op " + new Date().toLocaleString("nl-BE"), ""];
-    const groepen = [{ id: "P", titel: "Vraagprofiel (door te geven aan je begeleider)" }].concat(CURSUS.bouwstenen.map((b) => ({ id: b.id, titel: b.id + ". " + b.tekst }))).concat([{ id: "_", titel: "Notities bij de oefeningen" }]);
+    const groepen = [{ id: "P", titel: "Vraagprofiel (door te geven aan je begeleider)" }].concat(CURSUS.bouwstenen.map((b) => ({ id: b.id, titel: b.tekst }))).concat([{ id: "_", titel: "Werkbestand en notities bij de oefeningen" }]);
     const momenten = [{ id: "nu", naam: CURSUS.fasen[0].naam }, { id: "kennen", naam: "Zeker kennen" }, { id: "maart", naam: CURSUS.fasen[1].naam }, { id: "mei", naam: CURSUS.fasen[2].naam }];
     momenten.forEach((mo) => {
       const inMoment = ids.map((k) => w[k]).filter((x) => (x.fase || "nu") === mo.id);

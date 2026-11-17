@@ -68,7 +68,7 @@ window.FASEN = {
     "Een verantwoording per stuk van de vraag: keuze en reden.",
     "Werkdefinities, een kanaalzin per uitkomst en de spanning.",
     "Open punten waarover jullie feedback willen.",
-    "Alles samen in onderdeel A; het vraagprofiel naar je begeleider."
+    "Alles samen in het deel Onderzoeksvraag en afbakening; het vraagprofiel naar je begeleider."
    ],
    "kennen": [
     "Waarom de contrafeitelijke situatie bij jullie vraag moeilijk is, en welke alternatieven er waren."
@@ -149,10 +149,10 @@ window.FASEN = {
   },
   "startkader": {
    "nu": [
-    "Onderdeel A voor de nieuwe vraag: de vraag bovenaan, een korte verantwoording in puntjes, en de open punten van de nieuwe vraag.",
+    "Het deel Onderzoeksvraag en afbakening voor de nieuwe vraag: de vraag bovenaan, een korte verantwoording in puntjes, en de open punten van de nieuwe vraag.",
     "Eén of twee kanalen, elk met een klassiek model, toegepast op de werkgever die laaggeschoolde jongeren aanwerft (werkbestand).",
     "Verwachtingen in beide richtingen: waarom het gewicht zou stijgen, en waarom het gelijk zou blijven of dalen (werkbestand).",
-    "Een genummerde titel en 1 à 2 regels voor de sectie theoretisch kader, in onderdeel B."
+    "Een genummerde titel en 1 à 2 regels voor de sectie theoretisch kader, in het deel Structuur."
    ],
    "kennen": [
     "Waaraan je zou zien dat digitale vaardigheden zwaarder doorwegen, en het nadeel van elke aanwijzing (de maat kiest de groep in module 3).",
@@ -237,12 +237,12 @@ window.FASEN = {
   },
   "startkader": {
    "nu": [
-    "Een voorstel voor de maat, en de maat die jullie groep kiest vóór ze de zoektaken verdeelt (onderdeel A).",
+    "Een voorstel voor de maat, en de maat die jullie groep kiest vóór ze de zoektaken verdeelt (het deel Onderzoeksvraag en afbakening).",
     "Een zoekopdracht in blokken, in Engels vakjargon (werkbestand).",
-    "Een aangescherpte werkdefinitie van laaggeschoolde jongeren (aanvulling in onderdeel A).",
-    "Een eerste bronnenlijst van 6 à 10 referenties met [G] of [T], met een overzichtsartikel en een Vlaamse of Belgische bron (onderdeel D).",
+    "Een aangescherpte werkdefinitie van laaggeschoolde jongeren (aanvulling in het deel Onderzoeksvraag en afbakening).",
+    "Een eerste bronnenlijst van 6 à 10 referenties met [G] of [T], met een overzichtsartikel en een Vlaamse of Belgische bron (het deel Bronnenoverzicht).",
     "Een kort zoekprotocol: zoekplek, termen, aantal kandidaten, wat je niet vond (werkbestand).",
-    "Een aanvulling op de open punten in onderdeel A: wat jullie zochten en niet vonden."
+    "Een aanvulling op de open punten in het deel Onderzoeksvraag en afbakening: wat jullie zochten en niet vonden."
    ],
    "kennen": [
     "Hoe je je zoekprotocol in het feedbackgesprek toelicht.",
@@ -284,7 +284,7 @@ window.FASEN = {
    },
    "m4-p07": {
     "fase": "kennen",
-    "reden": "Het open punt over haalbaarheid staat al in onderdeel A (module 3); in de opdracht vul je het aan met wat geen bron dekt en waar je zocht. Het soort gat schrijf je niet in A. Hier leer je het verschil tussen een gat in de zoektocht en een gat in de literatuur, voor het feedbackgesprek."
+    "reden": "Het open punt over haalbaarheid staat al in het deel Onderzoeksvraag en afbakening (module 3); in de opdracht vul je het aan met wat geen bron dekt en waar je zocht. Het soort gat schrijf je niet in het deel Onderzoeksvraag en afbakening. Hier leer je het verschil tussen een gat in de zoektocht en een gat in de literatuur, voor het feedbackgesprek."
    },
    "m4-p08": {
     "fase": "kennen",
@@ -319,7 +319,7 @@ window.FASEN = {
   },
   "startkader": {
    "nu": [
-    "Onderdeel D bevat enkel de bronnenlijst: één referentie per bron, met [G] of [T].",
+    "Het deel Bronnenoverzicht bevat enkel de bronnenlijst: één referentie per bron, met [G] of [T].",
     "De afspraak over [G] en [T] uit module 3: [G] = je opende de bron zelf en las minstens het abstract, de inleiding of de conclusie; alleen de titel zien is niet genoeg. Een [T] is geen fout.",
     "Elk groepslid raadpleegt twee bronnen, na een korte verdeling in de groep.",
     "Per geraadpleegde bron de meetlat in het werkbestand: maat, groep, land, periodes, welk stuk van de vraag ze dekt.",
@@ -408,7 +408,7 @@ window.FASEN = {
   },
   "startkader": {
    "nu": [
-    "Eén alfabetische lijst in onderdeel D, elke regel volgens het model van les 3, met [G] of [T].",
+    "Eén alfabetische lijst in het deel Bronnenoverzicht, elke regel volgens het model van les 3, met [G] of [T].",
     "Bij elk rapport: wie is de auteur, en het jaar van verschijnen; bij elke tabel: de datum van raadplegen.",
     "Elke regel gecontroleerd tegen de bron zelf; Zotero niet blind overnemen.",
     "Een cijfer of definitie in je aanzet tot inleiding krijgt een verwijzing in de tekst, met dezelfde naam als in de lijst."
@@ -501,7 +501,7 @@ window.FASEN = {
    "nu": [
     "Waarom een vergelijking vóór en na ook opvangt wat sowieso veranderde (het voorbeeld van de twee campussen).",
     "Een bewuste keuze: (a) tijdsgrens, (b) oorzaak, of (c) tijdsgrens met een deelvraag over de rol van corona.",
-    "De reden en de prijs van die keuze, in de verantwoording van onderdeel A, en wat nog onzeker is bij de open punten onderaan onderdeel A."
+    "De reden en de prijs van die keuze, in de verantwoording van het deel Onderzoeksvraag en afbakening, en wat nog onzeker is bij de open punten onderaan het deel Onderzoeksvraag en afbakening."
    ],
    "kennen": [
     "Hoe een controlegroep de contrafeitelijke levert, en wat de parallelle trend zegt.",
@@ -674,11 +674,11 @@ window.FASEN = {
   },
   "startkader": {
    "nu": [
-    "Een aanzet tot inleiding in onderdeel C, ongeveer een halve pagina: per element een kernzin met steekwoorden en bron.",
-    "Een openingsfeit uit een oorspronkelijke bron dat het antwoord niet voorneemt; de bron staat in onderdeel D als [G] of [T].",
+    "Een aanzet tot inleiding in het deel Aanzet tot inleiding, ongeveer een halve pagina: per element een kernzin met steekwoorden en bron.",
+    "Een openingsfeit uit een oorspronkelijke bron dat het antwoord niet voorneemt; de bron staat in het deel Bronnenoverzicht als [G] of [T].",
     "De spanning met beide kanten, en een antwoord op 'en dus?' met een concrete lezer.",
-    "De vraag uit onderdeel A, met één zin die maat, groep en periodes noemt en naar onderdeel A verwijst.",
-    "Het vervolg in één of twee zinnen, volgens onderdeel B."
+    "De vraag uit het deel Onderzoeksvraag en afbakening, met één zin die maat, groep en periodes noemt en naar het deel Onderzoeksvraag en afbakening verwijst.",
+    "Het vervolg in één of twee zinnen, volgens het deel Structuur."
    ],
    "kennen": [
     "Waarom het openingsfeit het antwoord niet voorneemt, en wat de grenzen van het cijfer zijn (groep, gebied, jaar).",
@@ -763,10 +763,10 @@ window.FASEN = {
   "startkader": {
    "nu": [
     "Je eigen lijst van de problemen van jullie vraag die nog open zijn.",
-    "Onderdeel E: een planning tot de verdediging met periode, taak, trekker en product, en een beslismoment met één regel plan B voor het zwaarste open probleem.",
+    "Het deel Planning en taakverdeling: een planning tot de verdediging met periode, taak, trekker en product, en een beslismoment met één regel plan B voor het zwaarste open probleem.",
     "Per groepslid één zin over de rol die het trekt, en wie wanneer eindredacteur is.",
-    "De ene lijst open punten onderaan A, samengebracht door de groep.",
-    "Eén samengevoegd document: voorblad apart, A tot E samen ± 2 pagina's (advies van deze e-learning).",
+    "De ene lijst open punten onderaan het deel Onderzoeksvraag en afbakening, samengebracht door de groep.",
+    "Eén samengevoegd document: voorblad apart, de vijf delen van het document samen ± 2 pagina's (advies van deze e-learning).",
     "Een eindcontrole op de samenhang van de vraag, de bronnenlijst, de vorm en de taal.",
     "Het document ingediend als GroepX_Feedbackmoment1.docx."
    ],

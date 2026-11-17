@@ -186,7 +186,7 @@ textarea{width:100%;min-height:7rem;font:inherit;padding:.6rem;border:1px solid 
 /* Werkvelden in de opdracht */
 .werkveld{margin-top:1rem}
 .werkveld label{display:block;font-weight:700;margin-bottom:.3rem}
-.werkveld .bs{display:inline-block;min-width:1.4rem;text-align:center;margin-right:.4rem;background:var(--inkt);color:var(--wit);border-radius:3px;font-size:.85rem}
+.werkveld .bs{display:inline-block;padding:0 .45rem;text-align:center;margin-right:.4rem;background:var(--inkt);color:var(--wit);border-radius:3px;font-size:.85rem}
 .werkveld small{color:var(--leisteen)}
 /* Melding */
 .toast{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);background:var(--inkt);color:var(--wit);padding:.7rem 1.1rem;border-radius:var(--r-klein);max-width:90vw;z-index:10}
